@@ -3,15 +3,8 @@
 class BinarySearch
 {
 private:
-	int temp;
-	int i;
-	int zmiana;
-	int zdarzenia_elem;
-
+	int dominantCounter = 0;
 public:
-	int search(int * arr, int l, int r, int x);
-	void show(int * array, int size);
-
-
-
+	int search(int* L, int Y, int pocz, int kon);
+	int printDominantCouner();
 };

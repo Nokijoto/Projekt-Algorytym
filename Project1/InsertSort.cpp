@@ -4,9 +4,34 @@ using namespace std;
 
 																// Deklaracje funkcji sortowania i wyswietlania
 
-void InsertSort::sort(int * ArrayToSort, int size)
+void InsertSort::sort(int * arrayToSort, int size)
 {
-	int i, j, v;
+	int temp,j;
+	for (int i = 1; i <=size-1; i++)
+	{
+		temp = arrayToSort[i];
+		j = i;
+		while (j > 0)
+		{
+			if (arrayToSort[j - 1] > temp)
+			{
+				dominantCounter++;
+				arrayToSort[j] = arrayToSort[j - 1];
+				j--;
+
+			}
+			else
+			{
+				break;
+			}
+			
+		}
+		arrayToSort[j] = temp;
+	}
+
+
+
+	/*int i, j, v;
 	for (i = 1; i < size; i++)
 	{
 		j = i;
@@ -17,14 +42,6 @@ void InsertSort::sort(int * ArrayToSort, int size)
 			j--;
 		}
 		ArrayToSort[j] = v;
-	}
+	}*/
 }
 
-void InsertSort::show(int * ArrayToSort, int size)
-{
-	cout << "Tablica po posortowaniu : \n";
-	for (i = 0; i < size; i++)
-	{
-		cout << ArrayToSort[size] << "\t";
-	}
-}

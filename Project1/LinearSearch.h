@@ -2,15 +2,8 @@
 
 class LinearSearch
 {
-private:
-	int temp;
-	int i;
-	int zmiana;
-	int zdarzenia_elem;
-
 public:
-	void search(int * ArrayToSort, int size);
-	void show(int * ArrayToSort, int size);
-
-
+	int dominantCounter=0;
+	int search(int searched, int* ArrayToSort, int size);
+	int printDominantCouner();
 };

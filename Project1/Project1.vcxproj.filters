@@ -21,7 +21,7 @@
     <ClCompile Include="BubbleSort.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="QuickSort.cpp">
+    <ClCompile Include="MergeSort.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="InsertSort.cpp">
@@ -36,6 +36,9 @@
     <ClCompile Include="Dane.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="XLS.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BubbleSort.h">
@@ -44,7 +47,7 @@
     <ClInclude Include="InsertSort.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="QuickSort.h">
+    <ClInclude Include="MergeSort.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="LinearSearch.h">
@@ -56,5 +59,11 @@
     <ClInclude Include="Dane.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="XLS.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
