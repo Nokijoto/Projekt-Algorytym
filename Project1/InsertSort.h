@@ -14,6 +14,6 @@ public:
 	
 													// Definicja funkcji sortowania i wyswietlania
 		
-	void sort(int ArrayToSort[], int size);			// Funkcja realizujaca sortowanie bombelkowe
-	void show(int ArrayToSort[], int size);			// Funkcja wyswietlajaca posortowana tablice
+	void sort(int * ArrayToSort, int size);			// Funkcja realizujaca sortowanie bombelkowe
+	void show(int * ArrayToSort, int size);			// Funkcja wyswietlajaca posortowana tablice
 };

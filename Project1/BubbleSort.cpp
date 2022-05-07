@@ -4,8 +4,7 @@ using namespace std;
 
 											// Deklaracje funkcji sortowania i wyswietlania
 
-
-void BubbleSort::sort(int ArrayToSort[], int size)
+void BubbleSort::sort(int *ArrayToSort, int size)
 {
 	do
 	{
@@ -25,7 +24,7 @@ void BubbleSort::sort(int ArrayToSort[], int size)
 	} while (zmiana != 0);
 }
 
-void BubbleSort::show(int ArrayToSort[], int size)
+void BubbleSort::show(int *ArrayToSort, int size)
 {
 	cout << "Tablica po posortowaniu : \n";
 	for (i = 0; i < size; i++)

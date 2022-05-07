@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="BubbleSort.cpp" />
+    <ClCompile Include="Dane.cpp" />
     <ClCompile Include="InsertSort.cpp" />
     <ClCompile Include="LinearSearch.cpp" />
     <ClCompile Include="main.cpp" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="BubbleSort.h" />
+    <ClInclude Include="Dane.h" />
     <ClInclude Include="InsertSort.h" />
     <ClInclude Include="LinearSearch.h" />
     <ClInclude Include="QuickSort.h" />

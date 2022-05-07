@@ -4,7 +4,7 @@ using namespace std;
 
 																// Deklaracje funkcji sortowania i wyswietlania
 
-void InsertSort::sort(int ArrayToSort[], int size)
+void InsertSort::sort(int * ArrayToSort, int size)
 {
 	int i, j, v;
 	for (i = 1; i < size; i++)
@@ -20,7 +20,7 @@ void InsertSort::sort(int ArrayToSort[], int size)
 	}
 }
 
-void InsertSort::show(int ArrayToSort[], int size)
+void InsertSort::show(int * ArrayToSort, int size)
 {
 	cout << "Tablica po posortowaniu : \n";
 	for (i = 0; i < size; i++)

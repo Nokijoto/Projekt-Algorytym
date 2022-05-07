@@ -5,16 +5,16 @@ using namespace std;
 														// Deklaracje funkcji sortowania i wyswietlania
 
 
-void QuickSort::sort(int ArrayToSort[], int x, int y)
+void QuickSort::sort(int * ArrayToSort, int left, int right)
 {
-	int i, j, v, temp;
-	i = x;
-	j = y;
-	v = ArrayToSort[div(x + y, 2).quot];
+	int i, j, pivot, temp;
+	i = left;
+	j = right;
+	pivot = ArrayToSort[div(left + right, 2).quot];
 	do
 	{
-		while (ArrayToSort[i] < v) i++;
-		while (v < ArrayToSort[j]) j--;
+		while (ArrayToSort[i] < pivot) i++;
+		while (pivot < ArrayToSort[j]) j--;
 		if (i <= j)
 		{
 			temp = ArrayToSort[i];
@@ -24,12 +24,12 @@ void QuickSort::sort(int ArrayToSort[], int x, int y)
 			j--;
 		}
 	} while (i <= j);
-	if (x < j) sort(ArrayToSort, x, j);
-	if (i < y) sort(ArrayToSort, i, y);
+	if (left < j) sort(ArrayToSort, left, j);
+	if (i < right) sort(ArrayToSort, i, right);
 
 }
 
-void QuickSort::show(int ArrayToSort[], int size)
+void QuickSort::show(int * ArrayToSort, int size)
 {
 
 }

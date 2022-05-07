@@ -2,34 +2,32 @@
 #include "BinarySearch.h"
 using namespace std;
 
-void BinarySearch::search(int ArrayToSort[], int size)
+int BinarySearch::search(int * arr, int l, int r, int x)
 {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
 
-	int i, n, x, l, p, s;
-	int a[100];
-	l = 0;
-	p = n - 1;
-	while (l <= p)
-	{
-		s = (l + p) / 2;
+        // If the element is present at the middle
+        // itself
+        if (arr[mid] == x)
+            return mid;
 
-		if (a[s] == x)
-		{
-			//podaj wynik
-			cout<<"Odnaleziono element %d pod indeksem %d\n"<< x<<" " << s;
-			//zakoncz program
-			return;
-		}
+        // If element is smaller than mid, then
+        // it can only be present in left subarray
+        if (arr[mid] > x)
+            return search(arr, l, mid - 1, x);
 
-		if (a[s] < x)
-			l = s + 1;
-		else
-			p = s - 1;
-	}
-	cout << "Nie znalezino szukanego elementu" << endl;
+        // Else the element can only be present
+        // in right subarray
+        return search(arr, mid + 1, r, x);
+    }
+
+    // We reach here when element is not
+    // present in array
+    return -1;
 }
 
-void BinarySearch::show(int ArrayToSort[], int size)
+void BinarySearch::show(int * arr, int size)
 {
 	
 }

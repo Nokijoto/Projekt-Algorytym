@@ -9,8 +9,8 @@ private:
 	int zdarzenia_elem;
 
 public:
-	void search(int ArrayToSort[], int size);
-	void show(int ArrayToSort[], int size);
+	void search(int * ArrayToSort, int size);
+	void show(int * ArrayToSort, int size);
 
 
 };
