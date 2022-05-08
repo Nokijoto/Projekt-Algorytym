@@ -4,11 +4,12 @@
 #include <time.h>
 class Dane
 {
-	int arraySize = 0;
+	
 	void printSort();
 	void printBackSort();
 	void printRandomSort();
 public:
+	int arraySize = 0;
 	int* pomArray;
 	int* sortedArray;
 	int* backSortedArray;
@@ -16,7 +17,7 @@ public:
 	Dane();
 	Dane(int arraySize);
 	~Dane();
-	void printArr(int * arr,int size);
+	void printArr(int * arr);
 	void printObject(int flag=0);
 };
 

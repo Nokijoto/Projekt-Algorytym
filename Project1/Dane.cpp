@@ -88,9 +88,9 @@ void Dane::printObject(int flag)
 
 }
 
-void Dane::printArr(int * arr, int arraySize)
+void Dane::printArr(int * arr)
 {
-	for (int  i = 0; i < arraySize; i++)
+	for (int  i = 0; i < this->arraySize; i++)
 	{
 		cout << arr[i] << "\t";
 	}

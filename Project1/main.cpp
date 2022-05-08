@@ -49,20 +49,33 @@ int main()
 	LinearSearch LinearSearchObject;
 	BinarySearch BinarySearchObject;
 
+	Data2.arraySize;
+	Data1.arraySize;
+	dataSize;
+
+
+
+
+
+
+
+
+
+
+
 	//  Program 
 	cout << "Sortowanie bombelkowe dla tablicy wypelnionej losowo\n";
 	cout << "Przed: \n";
 	Data1.printObject(3);
-	BubbleSortObject.sort(Data1.randomArray, dataSize * arraySize);
+	BubbleSortObject.sort(Data1.randomArray,Data1.arraySize);
 	cout << "Po: \n";
 	Data1.printObject(3);
 	cout << "\n";
 
-
 	cout << "Sortowanie przez wstawianie dla tablicy wypelnionej losowo\n";
 	cout << "Przed: \n";
 	Data2.printObject(3);
-	InsertSortObject.sort(Data2.randomArray, dataSize * arraySize);
+	InsertSortObject.sort(Data2.randomArray, Data2.arraySize);
 	cout << "Po: \n";
 	Data2.printObject(3);
 	cout << "\n";
@@ -72,18 +85,23 @@ int main()
 
 	// Merge Nie dziala ?
 
-	/*Data3.printArr(Data3.randomArray, arraySize);
-	MergeSortObject.sort(Data3.randomArray, arraySize,0,Data3.pomArray);
-	Data3.printArr(Data3.randomArray, arraySize);*/
-	//BubbleSortObject.show(Data1.randomArray, arraySize);
-	
+
+	cout << "Sortowanie przez wstawianie dla tablicy wypelnionej losowo\n";
+	cout << "Przed: \n";
+	Data3.printObject(3);
+	MergeSortObject.sort(Data3.randomArray, 0, Data3.arraySize-1);
+	cout << "Po: \n";
+	Data3.printObject(3);
+	cout << "\n";
+
+	Data1.sortedArray;
 
 	cout << "Podaj poszukiwana wartosc \n";
 	cin >> search;
 	cout << " Wyszukiwanie liniowe dla posortowanej tablicy \n";
 	cout << "Podglad\n";
 	Data1.printObject(1);
-	cout <<"Znaleziono poszukiwana wartosc na indexie: "<<LinearSearchObject.search(search, Data1.sortedArray, dataSize * arraySize) << "\nLiczba operacji dominujacych dla tablicy o rozmiarze |\t" << arraySize << "\t| wynosi :\t" << LinearSearchObject.printDominantCouner() << "\n";
+	cout <<"Znaleziono poszukiwana wartosc na indexie: "<<LinearSearchObject.search(search, Data1.sortedArray, Data1.arraySize) << "\nLiczba operacji dominujacych dla tablicy o rozmiarze |\t" << Data1.arraySize << "\t| wynosi :\t" << LinearSearchObject.printDominantCouner() << "\n";
 	cout << "\n";
 	cout << "Podaj poszukiwana wartosc \n";
 	search = -1;
@@ -91,7 +109,7 @@ int main()
 	cout << " Wyszukiwanie binarnej dla posortowanej tablicy \n";
 	cout << "Podglad\n";
 	Data2.printObject(1);
-	cout << "Znaleziono poszukiwana wartosc na indexie: " << BinarySearchObject.search(Data2.sortedArray,search,0,dataSize * arraySize) << "\nLiczba operacji dominujacych dla tablicy o rozmiarze |\t" << arraySize << "\t| wynosi :\t" << BinarySearchObject.printDominantCouner() << "\n";
+	cout << "Znaleziono poszukiwana wartosc na indexie: " << BinarySearchObject.search(Data2.sortedArray,search,0, Data2.arraySize) << "\nLiczba operacji dominujacych dla tablicy o rozmiarze |\t" << Data2.arraySize << "\t| wynosi :\t" << BinarySearchObject.printDominantCouner() << "\n";
 
 
 }
