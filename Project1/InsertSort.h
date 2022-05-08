@@ -9,6 +9,6 @@ private:
 
 public:
 	
-													// Definicja funkcji sortowania i wyswietlania
+	int printDominantCouner();
 	void sort(int * arrayToSort, int size);			// Funkcja realizujaca sortowanie bombelkowe
 };

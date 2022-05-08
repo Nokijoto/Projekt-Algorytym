@@ -8,4 +8,5 @@ private:
 
 public:
 	void sort(int * arrayToSort, int size);			// Funkcja realizujaca sortowanie bombelkowe
+	int printDominantCouner();
 };

@@ -19,7 +19,7 @@ void Dane::printBackSort()
 	}
 	cout << "\n";
 }
-
+ 
 void Dane::printRandomSort()
 {
 	cout << "Tablica wygenerowana losowo" << endl;

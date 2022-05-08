@@ -10,6 +10,7 @@ using namespace std;
 
 void MergeSort::sort(int* arr, int low, int high)
 {
+    this->dominantCounter = 0;
     int mid;
     if (low < high) {
         //divide the array at mid and sort independently using merge sort

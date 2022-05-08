@@ -5,7 +5,7 @@ int LinearSearch::search(int searched,int* ArrayToSort, int size)
 {
 	for (int i = 0; i <= size; i++)
 	{
-		dominantCounter++;
+		this->dominantCounter++;
 		if (ArrayToSort[i] == searched)
 		{
 			return i;

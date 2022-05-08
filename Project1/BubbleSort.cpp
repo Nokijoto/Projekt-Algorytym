@@ -2,99 +2,35 @@
 #include "BubbleSort.h"
 using namespace std;
 
-											// Deklaracje funkcji sortowania i wyswietlania
+
 
 void BubbleSort::sort(int *arrayToSort, int size)
 { 
-	bool flag;
+	this->dominantCounter = 0;
+	bool flag;										// Zmienna do wyszukiwania czy zmiana zosta³a wykonana
 
-	for (int i=size-1; i>0; i--)
+	for (int i=size-1; i>0; i--)					// Pierwsza pêtla wykonuj¹ca siê dopóki zamiany s¹ wykonywane 
 	{	
-		flag = true;
-		for (int j = 0; j<=i; j++)
+		flag = true;								
+		for (int j = 0; j<=i; j++)						//Operacja dominuj¹ca , Pêtla umo¿liwiaj¹ca sprawdzenie wszystkich elementów
 		{
-			dominantCounter++;
-			if (arrayToSort[j - 1] > arrayToSort[j])
+			this->dominantCounter++;
+			if (arrayToSort[j - 1] > arrayToSort[j])     // Porównanie 2 elementów z sob¹ 
 			{
-				int temp = arrayToSort[j-1];
-				arrayToSort[j - 1] = arrayToSort[j];
-				arrayToSort[j]=temp;
-				flag = false;
+				int temp = arrayToSort[j-1];            //
+				arrayToSort[j - 1] = arrayToSort[j];	// Zamiana miejscami elementów
+				arrayToSort[j]=temp;					//
+				flag = false;							// Zmiana flagi na wykonanie zamiany;
 			}
 		}
-		if (flag) {
-			break;
+		if (flag) {										// Sprawdzenie czy zamiana zosta³a wykonana
+			break;										// Je¿eli nie zosta³a wykonana ,przerwanie pracy algorytmu
 		}
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-		////petla dostepu do kazdego elementu tablicy
-		//for (int step = 0; step < size - 1; ++step) {
-
-		//	// petla porownujaca 
-		//	for (int i = 0; i < size - step - 1; ++i) {
-
-		//		// porownanie elementow
-		//		if (array[i] > array[i + 1]) {
-
-		//			// zmiana nastepuje gdy elementy nie sa w poprawnej kolejnosc
-		//			int temp = array[i];
-		//			array[i] = array[i + 1];
-		//			array[i + 1] = temp;
-		//		}
-		//	}
-		//}
-	
-
-
-
-
-
-
-
-
-
-	/*
-	do
-	{
-		zmiana = 0;
-		i = size - 1;
-		do
-		{
-			i--;
-			if (ArrayToSort[i + 1] < ArrayToSort[i])
-			{
-				temp = ArrayToSort[i];
-				ArrayToSort[i] = ArrayToSort[i + 1];
-				ArrayToSort[i + 1] = temp;
-				zmiana = 1;
-			}
-		} while (i != 0);
-	} while (zmiana != 0);*/
 }
 
+int BubbleSort::printDominantCouner()
+{
+	return this->dominantCounter;
+}
