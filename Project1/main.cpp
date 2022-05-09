@@ -11,6 +11,9 @@
 
 using namespace std;
 
+
+
+
 void printArrMain(int * arr, int arraySize)
 {
 	for (int i = 0; i < arraySize; i++)
@@ -22,26 +25,42 @@ void printArrMain(int * arr, int arraySize)
 
 int main()
 {
+	BubbleSort BubbleSortObject;
+	InsertSort InsertSortObject;
+	MergeSort MergeSortObject;
+
+	LinearSearch LinearSearchObject;
+	BinarySearch BinarySearchObject;
+
 	int arraySize = 10;
 	int dataSize = 1;
 	int search = -1;
-
-	//int** ArrayOfObjects = new Dane[dataSize];
+	int howMuch;
 
 		// Tworzenie obiektów
 	cout << "(przelicznik N * 10) gdzie N jest podane przez uzytkownika\n";
 	cout <<"Podaj rozmiar 1 parti danych\n";
 	cin >> dataSize;
+	cout << "Podaj iloœæ parti danych\n";
+	cin >> howMuch;
 
+	Dane** Data = new Dane * [howMuch];
+	for (int i = 0; i <howMuch; i++)
+	{
+		Data[i] = new Dane(dataSize*arraySize);
+		Sleep(100);
+	}
+	for (int i = 0; i < howMuch; i++)
+	{
+		Data[i]->printObject();
+		cout << "==================================================================\n";
+	}
+	//Data[0].arraySize;
 	
-		
-	Dane * Data= new Dane[10];
-
-
-
+	//LinearSearchObject.printDominantCouner();
 	
-	Dane Data1(dataSize * arraySize);
-	Dane Data2(dataSize * arraySize);
+	//Dane Data1(dataSize * arraySize);
+	/*Dane Data2(dataSize * arraySize);
 	Dane Data3(dataSize * arraySize);
 	Dane Data4(dataSize * arraySize);
 	Dane Data5(dataSize * arraySize);
@@ -49,7 +68,7 @@ int main()
 	Dane Data7(dataSize * arraySize);
 	Dane Data8(dataSize * arraySize);
 	Dane Data9(dataSize * arraySize);
-	Dane Data10(dataSize * arraySize);
+	Dane Data10(dataSize * arraySize);*/
 
 								
 	//Dane Data1(dataSize*arraySize);
@@ -63,18 +82,15 @@ int main()
 	//////Sleep(100);
 	//////Dane Data3(dataSize * arraySize);
 	//												//Sortowanie
-	BubbleSort BubbleSortObject;
-	InsertSort InsertSortObject;
-	MergeSort MergeSortObject;
+	
 	//												//Wyszukiwanie
-	//LinearSearch LinearSearchObject;
-	//BinarySearch BinarySearchObject;
-	Data1.printObject(1);
+
+	/*Data1.printObject(1);
 	BubbleSortObject.sort(Data1.backSortedArray,Data1.arraySize);
 	cout << "\n";
 	cout << " Wykonano " << BubbleSortObject.printDominantCouner() << " dominujacych operacji\n";
-	cout << "\n";
-	BubbleSortObject.sort(Data2.backSortedArray,Data2.arraySize);
+	cout << "\n";*/
+	/*BubbleSortObject.sort(Data2.backSortedArray,Data2.arraySize);
 	cout << "\n";
 	cout << " Wykonano " << BubbleSortObject.printDominantCouner() << " dominujacych operacji\n";
 	cout << "\n";
@@ -111,7 +127,7 @@ int main()
 	cout << " Wykonano " << BubbleSortObject.printDominantCouner() << " dominujacych operacji\n";
 	cout << "\n";
 
-
+*/
 
 
 

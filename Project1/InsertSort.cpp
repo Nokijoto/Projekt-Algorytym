@@ -11,7 +11,7 @@ int InsertSort::printDominantCouner()
 
 void InsertSort::sort(int* arrayToSort, int size)
 {
-	this->dominantCounter = 0;
+	this->dominantCounter = 0; 
 	int temp, j;                                               
 	for (int i = 1; i <= size - 1; i++)
 	{

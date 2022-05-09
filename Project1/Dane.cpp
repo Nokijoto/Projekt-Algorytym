@@ -1,4 +1,6 @@
 #include "Dane.h"
+
+
 #include <iostream>
 using namespace std;
 void Dane::printSort()
@@ -38,6 +40,7 @@ Dane::Dane()
 }
 Dane::Dane(int size)
 {
+	//this->arraySize = dataSizeGlobal;
 	this->arraySize = size;
 	 sortedArray = new int[arraySize];
 	 backSortedArray = new int[arraySize];
