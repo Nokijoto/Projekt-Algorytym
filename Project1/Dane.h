@@ -10,7 +10,7 @@ class Dane
 	void printRandomSort();
 public:
 	int arraySize = 10;
-	int* pomArray;
+	//int* pomArray;
 	int* sortedArray;
 	int* backSortedArray;
 	int* randomArray;

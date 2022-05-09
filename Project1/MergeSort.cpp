@@ -8,6 +8,11 @@ using namespace std;
 
 
 
+int MergeSort::printDominantCouner()
+{
+    return this->dominantCounter;
+}
+
 void MergeSort::sort(int* arr, int low, int high)
 {
     this->dominantCounter = 0;
@@ -18,6 +23,7 @@ void MergeSort::sort(int* arr, int low, int high)
         sort(arr, low, mid);
         sort(arr, mid + 1, high);
         //merge or conquer sorted arrays
+        this->dominantCounter++;
         merge(arr, low, high, mid);
     }
 }

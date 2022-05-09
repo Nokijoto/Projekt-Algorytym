@@ -36,7 +36,7 @@ Dane::Dane()
 	this->sortedArray = nullptr;
 	this->backSortedArray = nullptr;
 	this->randomArray = nullptr;
-	this->pomArray = nullptr;
+	//this->pomArray = nullptr;
 }
 Dane::Dane(int size)
 {
@@ -45,13 +45,13 @@ Dane::Dane(int size)
 	 sortedArray = new int[arraySize];
 	 backSortedArray = new int[arraySize];
 	 randomArray = new int[arraySize];
-	 pomArray = new int[arraySize];
+	// pomArray = new int[arraySize];
 	 for (int i = 0; i < arraySize; i++)
 	 {
 		 sortedArray[i] = 0;
 		 backSortedArray[i] = 0;
 		 randomArray[i] = 0;
-		 pomArray[i] = 0;
+	//	 pomArray[i] = 0;
 	 }
 	 
 	 //cout << "Sorted:\n";
