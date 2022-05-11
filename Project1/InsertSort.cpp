@@ -4,35 +4,40 @@ using namespace std;
 
 																// Deklaracje funkcji sortowania i wyswietlania
 
-int InsertSort::printDominantCouner()
+bool InsertSort::validate(int j, int key, int var)
+{
+	this->dominantCounter++;
+	if (j >= 0 && var > key)
+	{
+
+		return true;
+	}
+	return false;
+}
+
+int InsertSort::printDominantCounter()
 {
 	return this->dominantCounter;
 }
 
-void InsertSort::sort(int* arrayToSort, int size)
+void InsertSort::sort(int* arr, int n)
 {
-	this->dominantCounter = 0; 
-	int temp, j;                                               
-	for (int i = 1; i <= size - 1; i++)
-	{
-		temp = arrayToSort[i];							// wybranie elementu 
-		j = i;							
-		while (j > 0)
-		{
-			this->dominantCounter++;
-			if (arrayToSort[j - 1] > temp)            // sprawdzanie czy element poprzedni jest wiêkszy od elementu pobranego do sprawdzenia
-			{
-				
-				arrayToSort[j] = arrayToSort[j - 1];  // wstawianie elementu na poprawne miejsce
-				j--;
-			}
-			else
-			{
 
-				break;
-			}
+
+	int i, key, j;
+	for (i = 1; i < n; i++)
+	{
+		key = arr[i];
+		j = i - 1;
+
+		
+		while (validate(j, key,arr[j]))/*j >= 0 && arr[j] > key*/
+		{
+			arr[j + 1] = arr[j];
+			j = j - 1;
 		}
-		arrayToSort[j] = temp;                      
+		arr[j + 1] = key;
 	}
+	
 }
 

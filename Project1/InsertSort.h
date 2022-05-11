@@ -5,10 +5,10 @@
 class InsertSort
 {
 private:
-	int dominantCounter = 0;									// Liczba zdarzen elementarnych
-
+	unsigned long long int dominantCounter = 0;									// Liczba zdarzen elementarnych
+	bool validate(int j,int key, int var);
 public:
 	
-	int printDominantCouner();
-	void sort(int * arrayToSort, int size);			// Funkcja realizujaca sortowanie bombelkowe
+	int printDominantCounter();
+	void sort(int* arr, int n);			// Funkcja realizujaca sortowanie bombelkowe
 };

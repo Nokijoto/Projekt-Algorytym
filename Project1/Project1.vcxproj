@@ -147,6 +147,7 @@
     <ClCompile Include="LinearSearch.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MergeSort.cpp" />
+    <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="XLS.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="InsertSort.h" />
     <ClInclude Include="LinearSearch.h" />
     <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="XLS.h" />
   </ItemGroup>
   <ItemGroup>

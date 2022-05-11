@@ -1,0 +1,4 @@
+Rozmiar Danych;10;100;40;
+Posortowane;6;4;4;
+Malejaca;4;4;4;
+Losowo;0;0;0;

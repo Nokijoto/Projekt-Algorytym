@@ -15,7 +15,7 @@ int LinearSearch::search(int searched,int* ArrayToSort, int size)
 
 }
 
-int LinearSearch::printDominantCouner()
+int LinearSearch::printDominantCounter()
 {
 	return this->dominantCounter;
 }

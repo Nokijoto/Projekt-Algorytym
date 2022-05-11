@@ -3,6 +3,7 @@
 
 #include <iostream>
 using namespace std;
+int Dane::objCounter = 1;
 void Dane::printSort()
 {
 	cout << "Tablica Posortowana 1-N" << endl;
@@ -20,8 +21,7 @@ void Dane::printBackSort()
 		cout << this->backSortedArray[i] << "\t";
 	}
 	cout << "\n";
-}
- 
+} 
 void Dane::printRandomSort()
 {
 	cout << "Tablica wygenerowana losowo" << endl;
@@ -30,6 +30,10 @@ void Dane::printRandomSort()
 		cout << this->randomArray[i] << "\t";
 	}
 	cout << "\n";
+}
+int Dane::addtoCounter()
+{
+	return objCounter++;
 }
 Dane::Dane()
 {
@@ -40,43 +44,40 @@ Dane::Dane()
 }
 Dane::Dane(int size)
 {
-	//this->arraySize = dataSizeGlobal;
 	this->arraySize = size;
+
 	 sortedArray = new int[arraySize];
 	 backSortedArray = new int[arraySize];
 	 randomArray = new int[arraySize];
 	// pomArray = new int[arraySize];
 	 for (int i = 0; i < arraySize; i++)
 	 {
+		 /*if (i == 0)
+		 {
+			 continue;
+		 }*/
 		 sortedArray[i] = 0;
 		 backSortedArray[i] = 0;
 		 randomArray[i] = 0;
 	//	 pomArray[i] = 0;
 	 }
 	 
-	 //cout << "Sorted:\n";
-	 //printArr(sortedArray, size);
-	 //cout << "BackSorted:\n";
-	 //printArr(backSortedArray, size);
-	 //cout << "Random:\n";
-	 //printArr(randomArray, size);
+	
 
 
 	srand(time(NULL));
 	for (int i = 0; i < arraySize; i++)
 	{
+		/*if (i == 0)
+		{
+			continue;
+		}*/
 		randomArray[i] = rand() % arraySize + 1;
 		sortedArray[i] = i+1;
 		backSortedArray[i]= arraySize -i;
 	}
 
-	/*cout << "Sorted:\n";
-	printArr(sortedArray, size);
-	cout << "BackSorted:\n";
-	printArr(backSortedArray, size);
-	cout << "Random:\n";
-	printArr(randomArray, size);*/
-
+	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "'\n";
 }
 
 void Dane::printObject(int flag)
@@ -102,7 +103,9 @@ void Dane::printArr(int * arr)
 
 Dane::~Dane()
 {
-	delete []sortedArray;
-	delete []backSortedArray;
-	delete []randomArray;
+	//	delete [] this->sortedArray;
+	//	delete [] this->backSortedArray;
+	//	delete [] this->randomArray;
+	//
 }
+

@@ -31,7 +31,7 @@ int BinarySearch::search(int *L, int Y, int pocz, int kon)
 
 }
 
-int BinarySearch::printDominantCouner()
+int BinarySearch::printDominantCounter()
 {
     return this->dominantCounter;
 }

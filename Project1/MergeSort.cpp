@@ -5,122 +5,84 @@ using namespace std;
 		
 
 
+//
+//
+//
+//float MergeSort::printDominantCouner()
+//{
+//    return this->dominantCounter;
+//}
 
 
 
-int MergeSort::printDominantCouner()
+
+
+bool MergeSort::validate()
+{
+    return false;
+}
+
+void MergeSort::merge(int* array, int left, int middleValue, int right)
+{
+
+    int i, j, k;
+    int n1 = middleValue - left + 1;
+    int n2 = right - middleValue;
+    int* Left = new int[n1];
+    int* Right = new int[n2];
+    for (i = 0; i < n1; i++)
+        Left[i] = array[left + i];
+    for (j = 0; j < n2; j++)
+        Right[j] = array[middleValue + 1 + j];
+    i = 0;
+    j = 0;
+    k = left;
+    while (i < n1 && j < n2)
+    {
+        if (Left[i] <= Right[j])
+        {
+            array[k] = Left[i];
+            i++;
+        }
+        else
+        {
+            array[k] = Right[j];
+            j++;
+        }
+        k++;
+    }
+    while (i < n1)
+    {
+        array[k] = Left[i];
+        i++;
+        k++;
+    }
+    while (j < n2)
+    {
+        array[k] = Right[j];
+        j++;
+        k++;
+    }
+
+
+}
+
+void MergeSort::sort(int* array, int left, int right)
+{
+    right--;
+    if (left < right)
+    {
+        int middleValue = left + (right - left) / 2;
+        
+        sort(array, left, middleValue);
+        this->dominantCounter++;
+        sort(array, middleValue + 1, right);
+        this->dominantCounter++;
+        merge(array, left, middleValue, right);
+    }
+}
+
+int MergeSort::printDominantCounter()
 {
     return this->dominantCounter;
 }
-
-void MergeSort::sort(int* arr, int low, int high)
-{
-    this->dominantCounter = 0;
-    int mid;
-    if (low < high) {
-        //divide the array at mid and sort independently using merge sort
-        mid = (low + high) / 2;
-        sort(arr, low, mid);
-        sort(arr, mid + 1, high);
-        //merge or conquer sorted arrays
-        this->dominantCounter++;
-        merge(arr, low, high, mid);
-    }
-}
-
-void MergeSort::merge(int* arr, int low, int high, int mid)
-{
-    int i, j, k, c[50];
-    i = low;
-    k = low;
-    j = mid + 1;
-    while (i <= mid && j <= high) {
-        if (arr[i] < arr[j]) {
-            c[k] = arr[i];
-            k++;
-            i++;
-        }
-        else {
-            c[k] = arr[j];
-            k++;
-            j++;
-        }
-    }
-    while (i <= mid) {
-        c[k] = arr[i];
-        k++;
-        i++;
-    }
-    while (j <= high) {
-        c[k] = arr[j];
-        k++;
-        j++;
-    }
-    for (i = low; i < k; i++) {
-        arr[i] = c[i];
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-												// Deklaracje funkcji sortowania i wyswietlania
-
-//void MergeSort::merge(int *tab, int lewy, int srodek, int prawy,int * pom)
-//{
-//	int i = lewy, j = srodek + 1;
-//
-//	//kopiujemy lew¹ i praw¹ czêœæ tablicy do tablicy pomocniczej
-//	for (int i = lewy; i <= prawy; i++)
-//		this->pom[i] = tab[i];
-//
-//	//scalenie dwóch podtablic pomocniczych i zapisanie ich 
-//	//we w³asciwej tablicy
-//	for (int k = lewy; k <= prawy; k++)
-//		if (i <= srodek)
-//			if (j <= prawy)
-//				if (pom[j] < pom[i])
-//					tab[k] = pom[j++];
-//				else
-//					tab[k] = pom[i++];
-//			else
-//				tab[k] = pom[i++];
-//		else
-//			tab[k] = pom[j++];
-//};
-//
-//
-//void MergeSort::sort(int * arrayToSort, int right, int left,int * pomD)
-//{	
-//	
-//
-//	//gdy mamy jeden element, to jest on ju¿ posortowany
-//	if (right <= left) return;
-//
-//	//znajdujemy srodek podtablicy
-//	int mid = (right + left) / 2;
-//
-//	//dzielimy tablice na czêsæ lew¹ i prawa
-//	sort(arrayToSort, left, mid,pomD);
-//	sort(arrayToSort, mid + 1, right,pomD);
-//
-//	//scalamy dwie ju¿ posortowane tablice
-//	merge(arrayToSort, left, mid, right,pomD);
-//
-//
-//
-//
-//}
