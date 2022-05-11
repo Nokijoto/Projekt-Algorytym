@@ -8,7 +8,7 @@ int BinarySearch::search(int *L, int Y, int pocz, int kon)
     if (pocz > kon) {
         return -1;
     }
-
+    this->dominantCounter++;
     int sr;
     sr = (pocz + kon) / 2;
     if (Y == L[sr])
@@ -18,7 +18,7 @@ int BinarySearch::search(int *L, int Y, int pocz, int kon)
     }
     if (Y < L[sr])
     {
-        this->dominantCounter++;
+       
         return search(L, Y, pocz, sr - 1);
     }
     else

@@ -1,17 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h> 
 #include <Windows.h>
-#include "BubbleSort.h"`
+#include "BubbleSort.h"
 #include "InsertSort.h"
 #include "MergeSort.h"
 #include "Dane.h"
 #include "LinearSearch.h"
 #include "BinarySearch.h"
 #include "QuickSort.h"
-
-#include "XLS.h"
-
+	
 
 using namespace std;
 class ToFile
@@ -35,23 +35,14 @@ void empiricalMergeSort();
 void empiricalBinarySerach();
 void empiricalLinarySearch();
 
-
-void printArrMain(int * arr, int arraySize)
-{
-	for (int i = 0; i < arraySize; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-	cout << "\n";
-}
-
 int main()
 {
-
-	while (1)
+	bool flag = 1;
+	while (flag)
 	{
 		int option = -1;
-		cout << "Empiryczna analiza algorytmow:\n1.BubbleSort\n2.InserSort\n3.MergeSort\n4.BinarySearch\n5.LinearSearch\n";
+		cout << "\nEmpiryczna analiza algorytmow:\n1.BubbleSort\n2.InserSort\n3.MergeSort\n4.BinarySearch\n5.LinearSearch\n";
+		cout << "\nObiekty tworzone sa w kolejnoœci\nSortowane: 1-N\nMalejaca:N-1\n";
 		cin >> option;
 		switch (option)
 		{
@@ -60,6 +51,7 @@ int main()
 		case 3:empiricalMergeSort(); break;
 		case 4:empiricalBinarySerach();break;
 		case 5:empiricalLinarySearch(); break;
+		case 0:flag = 0; break;
 		}
 	}
 	
@@ -82,14 +74,15 @@ void empiricalBubbleSort()
 	int *randomTime = new int[howMuch];
 	int	*sizeObjects = new int[howMuch];
 	ToFile BubbleDataToFile(howMuch);
+	DataBubbleArray[0]->resetObjCounter();
 	cout << "Teraz nastapi tworzenie obiektow\n";
 	for (int i = 0; i < howMuch; i++)// tworzenie obiektów
 	{
-		cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
-		cin >> arraysSize;
-		cout << "\n";
-		DataBubbleArray[i] = new Dane(arraysSize); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
-		sizeObjects[i] = arraysSize;
+		//cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
+		//cin >> arraysSize;
+		//cout << "\n";
+		DataBubbleArray[i] = new Dane(i); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
+		sizeObjects[i] = i;
 
 		BubbleSortSortedObjectArray[i] = new BubbleSort; // tablica obiektów dla posortowanych danych
 		BubbleSortBackObjectArray[i] = new BubbleSort; // tablica obiektów dla malejacych 
@@ -100,7 +93,7 @@ void empiricalBubbleSort()
 	cout << "\nRozpoczynam sortowanie!\n";
 	for (int i = 0; i < howMuch; i++)
 	{
-		cout << i << "\tPartia danych do sortowania\n\n";
+		cout << i << ")Partia danych do sortowania\n\n";
 		BubbleSortSortedObjectArray[i]->sort(DataBubbleArray[i]->sortedArray, DataBubbleArray[i]->arraySize);
 		cout << "Dominujace dla Sortowania bubble i dla posortowanej tablicy : " << BubbleSortSortedObjectArray[i]->printDominantCounter() << "\n";
 		sortedTime[i] = BubbleSortSortedObjectArray[i]->printDominantCounter();
@@ -134,13 +127,14 @@ void empiricalInsertSort()
 	int* randomTime = new int[howMuch];
 	int* sizeObjects = new int[howMuch];
 	ToFile InsertDataToFile(howMuch);
+	DataInsertArray[0]->resetObjCounter();
 	cout << "Teraz nastapi tworzenie obiektow\n";
 	for (int i = 0; i < howMuch; i++)// tworzenie obiektów
 	{
-		cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
-		cin >> arraysSize;
-		cout << "\n";
-		DataInsertArray[i] = new Dane(arraysSize); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
+		//cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
+		//cin >> arraysSize;
+		//cout << "\n";
+		DataInsertArray[i] = new Dane(i); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
 		sizeObjects[i] = arraysSize;
 
 		InsertSortSortedObjectArray[i] = new InsertSort; // tablica obiektów dla posortowanych danych
@@ -152,7 +146,7 @@ void empiricalInsertSort()
 	cout << "\nRozpoczynam sortowanie!\n";
 	for (int i = 0; i < howMuch; i++)
 	{
-		cout << i << "\tPartia danych do sortowania\n\n";
+		cout << i << ") Partia danych do sortowania\n\n";
 		InsertSortSortedObjectArray[i]->sort(DataInsertArray[i]->sortedArray, DataInsertArray[i]->arraySize);
 		cout << "Dominujace dla Sortowania Insert i dla posortowanej tablicy : " << InsertSortSortedObjectArray[i]->printDominantCounter() << "\n";
 		sortedTime[i] = InsertSortSortedObjectArray[i]->printDominantCounter();
@@ -188,14 +182,15 @@ void empiricalMergeSort()
 	int* randomTime = new int[howMuch];
 	int* sizeObjects = new int[howMuch];
 	ToFile MergeDataToFile(howMuch);
+	DataMergeArray[0]->resetObjCounter();
 	cout << "Teraz nastapi tworzenie obiektow\n";
 	for (int i = 0; i < howMuch; i++)// tworzenie obiektów
 	{
-		cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
-		cin >> arraysSize;
-		cout << "\n";
-		DataMergeArray[i] = new Dane(arraysSize); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
-		sizeObjects[i] = arraysSize;
+		//cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
+		//cin >> arraysSize;
+		//cout << "\n";
+		DataMergeArray[i] = new Dane(i); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
+		sizeObjects[i] = i;
 
 
 		MergeSortSortedObjectArray[i] = new MergeSort; // tablica obiektów dla posortowanych danych
@@ -207,7 +202,7 @@ void empiricalMergeSort()
 	cout << "\nRozpoczynam sortowanie!\n";
 	for (int i = 0; i < howMuch; i++)
 	{
-		cout <<i<<"\tPartia danych do sortowania\n\n";
+		cout <<i<<")Partia danych do sortowania\n\n";
 		MergeSortSortedObjectArray[i]->sort(DataMergeArray[i]->sortedArray,0, DataMergeArray[i]->arraySize);
 		cout << "Dominujace dla Sortowania Merge i dla posortowanej tablicy : " << MergeSortSortedObjectArray[i]->printDominantCounter() << "\n";
 		sortedTime[i] = MergeSortSortedObjectArray[i]->printDominantCounter();
@@ -242,14 +237,15 @@ void empiricalLinarySearch()
 	int* randomTime = new int[howMuch];
 	int* sizeObjects = new int[howMuch];
 	ToFile LinearDataToFile(howMuch);
+	DataLinaryArray[0]->resetObjCounter();
+
+	srand(time(NULL));
 	cout << "Teraz nastapi tworzenie obiektow\n";
 	for (int i = 0; i < howMuch; i++)// tworzenie obiektów
 	{
-		cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
-		cin >> arraysSize;
-		cout << "\n";
-		DataLinaryArray[i] = new Dane(arraysSize); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
-		sizeObjects[i] = arraysSize;
+	
+		DataLinaryArray[i] = new Dane(i); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
+		sizeObjects[i] = i;
 
 		LinarySearchSortedObjectArray[i] = new LinearSearch; // tablica obiektów dla posortowanych danych
 		LinarySearchBackObjectArray[i] = new LinearSearch; // tablica obiektów dla malejacych 
@@ -261,23 +257,45 @@ void empiricalLinarySearch()
 	int search = -1;
 	for (int i = 0; i < howMuch; i++)
 	{
-		int search = -1;
-		cout << i << "\tPartia danych do szukania\n\n";
-		cout <<"\nLiczba do znalezienia dla posortowanej :\n\n";
-		cin >> search;
+
+		srand(time(NULL));
+		//cout << i << ") Partia danych do szukania\n\n";
+		Sleep(1000);
+		//cout <<"\nLiczba do znalezienia dla posortowanej :\n";
+
+		if (i == 0 || i == 1)
+		{
+			sortedTime[i] = 0;
+			backTime[i] = 0;
+			randomTime[i] = 0;
+			continue;
+
+		}
+		cout << "Wyszukiwanie  binarne dla " << i << " elementowej tablicy\n";
+		search = rand() % DataLinaryArray[i]->arraySize+1;
+		cout << "\nLiczba do znalezienia dla posortowanej :\n";
+		cout << search<<"\n";
 		LinarySearchSortedObjectArray[i]->search(search,DataLinaryArray[i]->sortedArray, DataLinaryArray[i]->arraySize);
-		cout << "Dominujace dla Sortowania Merge i dla posortowanej tablicy : " << LinarySearchSortedObjectArray[i]->printDominantCounter() << "\n";
+		cout << "Dominujace dla wyszukiwania liniowego dla losowych wartosci o : " << LinarySearchSortedObjectArray[i]->printDominantCounter() << "\n";
 		sortedTime[i] = LinarySearchSortedObjectArray[i]->printDominantCounter();
-		cout << "\nLiczba do znalezienia dla posortowanej :\n\n";
-		cin >> search;
-		LinarySearchBackObjectArray[i]->search(search, DataLinaryArray[i]->sortedArray, DataLinaryArray[i]->arraySize);
-		cout << "Dominujace dla Sortowania Merge i dla malejacej tablicy : " << LinarySearchBackObjectArray[i]->printDominantCounter() << "\n";
+
+
+
+
+		cout << "\nLiczba do znalezienia dla malejacej :\n";
+		search = rand() % DataLinaryArray[i]->arraySize + 1;
+		cout << search << "\n";
+		LinarySearchBackObjectArray[i]->search(search, DataLinaryArray[i]->backSortedArray, DataLinaryArray[i]->arraySize);
+		cout << "Dominujace dla wyszukiwania liniowego dla losowych wartosci : " << LinarySearchBackObjectArray[i]->printDominantCounter() << "\n";
 		backTime[i] = LinarySearchBackObjectArray[i]->printDominantCounter();
-		cout << "\nLiczba do znalezienia dla posortowanej :\n\n";
-		cin >> search;
-		LinarySearchRandomObjectArray[i]->search(search, DataLinaryArray[i]->sortedArray, DataLinaryArray[i]->arraySize);
-		cout << "Dominujace dla Sortowania Merge i dla losowej tablicy : " << LinarySearchRandomObjectArray[i]->printDominantCounter() << "\n";
-		randomTime[i] = 0;
+
+
+		cout << "\nLiczba do znalezienia dla posortowanej :\n";
+		search = rand() % DataLinaryArray[i]->arraySize + 1;
+		cout << search << "\n";
+		LinarySearchRandomObjectArray[i]->search(search, DataLinaryArray[i]->randomArray, DataLinaryArray[i]->arraySize);
+		cout << "Dominujace dla wyszukiwania liniowego dla losowych wartosci : " << LinarySearchRandomObjectArray[i]->printDominantCounter() << "\n";
+		randomTime[i] = LinarySearchRandomObjectArray[i]->printDominantCounter();
 		cout << "\n";
 
 
@@ -292,7 +310,7 @@ void empiricalBinarySerach()
 
 	cout << "Podaj ilosc obiektow do testowania\n";
 	cin >> howMuch;
-	Dane** DataLinaryArray = new Dane * [howMuch];       // tablica obiektów 
+	Dane** DataBinaryArray = new Dane * [howMuch];       // tablica obiektów 
 	BinarySearch** BinarySearchSortedObjectArray = new BinarySearch * [howMuch]; // tablica obiektów
 	BinarySearch** BinarySearchBackObjectArray = new BinarySearch * [howMuch];// tablica obiektów
 	int arraysSize = 0;
@@ -301,35 +319,57 @@ void empiricalBinarySerach()
 	int* randomTime = new int[howMuch];
 	int* sizeObjects = new int[howMuch];
 	ToFile BinaryDataToFile(howMuch);
+	DataBinaryArray[0]->resetObjCounter();
+	srand(time(NULL));
 	cout << "Teraz nastapi tworzenie obiektow\n";
 	for (int i = 0; i < howMuch; i++)// tworzenie obiektów
 	{
-		cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
-		cin >> arraysSize;
-		cout << "\n";
-		DataLinaryArray[i] = new Dane(arraysSize); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
-		sizeObjects[i] = arraysSize;
+		//cout << "\nPodaj rozmiar  " << (i)+1 << " obiektu do testowania\n";
+		//cin >> arraysSize;
+		//cout << "\n";
+
+		DataBinaryArray[i] = new Dane(i); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
+		sizeObjects[i] = i;
 
 		BinarySearchSortedObjectArray[i] = new BinarySearch; // tablica obiektów dla posortowanych danych
 		BinarySearchBackObjectArray[i] = new BinarySearch; // tablica obiektów dla malejacych 
 		
 
 
-	}cout << "\n";
+	}
+	cout << "\n";
 	int search = -1;
 	for (int i = 0; i < howMuch; i++)
 	{
-		int search = -1;
+		/*int search = -1;
 		cout << i << "\tPartia danych do szukania\n\n";
 		cout << "\nLiczba do znalezienia dla posortowanej :\n\n";
-		cin >> search;
-		BinarySearchSortedObjectArray[i]->search(DataLinaryArray[i]->sortedArray, search, 0, DataLinaryArray[i]->arraySize);
-		cout << "Dominujace dla Sortowania Merge i dla posortowanej tablicy : " << BinarySearchSortedObjectArray[i]->printDominantCounter() << "\n";
+		cin >> search;*/
+		srand(time(NULL));
+		Sleep(1000);
+		if (i == 0 || i == 1)
+		{
+			sortedTime[i] = 0;
+			backTime[i] = 0;
+			randomTime[i] = 0;
+			continue;
+
+		}
+		cout << "Wyszukiwanie  binarne dla " << i << " elementowej tablicy\n";
+
+		cout << "\nLiczba do znalezienia dla posortowanej:\n";
+		search = rand() % i + 1;
+		cout << search << "\n";
+		BinarySearchSortedObjectArray[i]->search(DataBinaryArray[i]->sortedArray, search, 0, DataBinaryArray[i]->arraySize);
+		cout << "Dominujace dla wyszukiwania binarnego dla rosnacych : " << BinarySearchSortedObjectArray[i]->printDominantCounter() << "\n";
 		sortedTime[i] = BinarySearchSortedObjectArray[i]->printDominantCounter();
-		cout << "\nLiczba do znalezienia dla malejacej:\n\n";
-		cin >> search;
-		BinarySearchBackObjectArray[i]->search(DataLinaryArray[i]->sortedArray,search,0, DataLinaryArray[i]->arraySize);
-		cout << "Dominujace dla Sortowania Merge i dla malejacej tablicy : " << BinarySearchBackObjectArray[i]->printDominantCounter() << "\n";
+
+
+		cout << "\nLiczba do znalezienia dla malejacej:\n";
+		search = rand() % i + 1;
+		cout << search << "\n";
+		BinarySearchBackObjectArray[i]->search(DataBinaryArray[i]->backSortedArray,search,0, DataBinaryArray[i]->arraySize);
+		cout << "Dominujace dla wyszukiwania binarnego dla malejacych : " << BinarySearchBackObjectArray[i]->printDominantCounter() << "\n";
 		backTime[i] = BinarySearchBackObjectArray[i]->printDominantCounter();
 		randomTime[i] = 0;
 		cout << "\n";
@@ -357,7 +397,6 @@ void ToFile::saveToFile(string type,int countObjects, int* sizeObjects, int* sor
 	{
 		cout << " Blad tworzenia pliku\n";
 	}
-	cout << "Zapis danych!\n";
 	plik << "Rozmiar Danych;";
 	for (int i = 0; i < countObjects; i++)
 	{

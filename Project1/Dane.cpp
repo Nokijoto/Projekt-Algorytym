@@ -50,17 +50,17 @@ Dane::Dane(int size)
 	 backSortedArray = new int[arraySize];
 	 randomArray = new int[arraySize];
 	// pomArray = new int[arraySize];
-	 for (int i = 0; i < arraySize; i++)
-	 {
-		 /*if (i == 0)
-		 {
-			 continue;
-		 }*/
-		 sortedArray[i] = 0;
-		 backSortedArray[i] = 0;
-		 randomArray[i] = 0;
-	//	 pomArray[i] = 0;
-	 }
+	// for (int i = 0; i < arraySize; i++)
+	// {
+	//	 /*if (i == 0)
+	//	 {
+	//		 continue;
+	//	 }*/
+	//	 sortedArray[i] = 0;
+	//	 backSortedArray[i] = 0;
+	//	 randomArray[i] = 0;
+	////	 pomArray[i] = 0;
+	// }
 	 
 	
 
@@ -77,7 +77,7 @@ Dane::Dane(int size)
 		backSortedArray[i]= arraySize -i;
 	}
 
-	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "'\n";
+	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "\n";
 }
 
 void Dane::printObject(int flag)
@@ -90,6 +90,11 @@ void Dane::printObject(int flag)
 	default: printSort(); printBackSort(); printRandomSort(); 
 	}
 
+}
+
+void Dane::resetObjCounter()
+{
+	objCounter = 0;
 }
 
 void Dane::printArr(int * arr)

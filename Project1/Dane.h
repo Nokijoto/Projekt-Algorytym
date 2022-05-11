@@ -21,5 +21,6 @@ public:
 	~Dane();// dekonstruktor 
 	void printArr(int * arr);// wyœwietlanie tablicy ???
 	void printObject(int flag=0);// wyswietlanie tablicy zale¿nie od flagi
+	void resetObjCounter();
 };
 
