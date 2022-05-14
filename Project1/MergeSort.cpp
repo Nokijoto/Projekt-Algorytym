@@ -2,21 +2,6 @@
 #include "MergeSort.h"
 using namespace std;
 
-		
-
-
-//
-//
-//
-//float MergeSort::printDominantCouner()
-//{
-//    return this->dominantCounter;
-//}
-
-
-
-
-
 bool MergeSort::validate()
 {
     return false;
@@ -53,12 +38,14 @@ void MergeSort::merge(int* array, int left, int middleValue, int right)
     }
     while (i < n1)
     {
+        this->dominantCounter++;
         array[k] = Left[i];
         i++;
         k++;
     }
     while (j < n2)
     {
+        this->dominantCounter++;
         array[k] = Right[j];
         j++;
         k++;
@@ -75,9 +62,7 @@ void MergeSort::sort(int* array, int left, int right)
         int middleValue = left + (right - left) / 2;
         
         sort(array, left, middleValue);
-        this->dominantCounter++;
         sort(array, middleValue + 1, right);
-        this->dominantCounter++;
         merge(array, left, middleValue, right);
     }
 }

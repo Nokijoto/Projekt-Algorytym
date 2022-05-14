@@ -1,10 +1,8 @@
 #include "Dane.h"
-
-
 #include <iostream>
 using namespace std;
-int Dane::objCounter = 1;
-void Dane::printSort()
+int Dane::objCounter = 1;// zmienna statyczna do zliczania liczby elementów
+void Dane::printSort() // funkcja wyœwietlaj¹ca tablice porostowan¹
 {
 	cout << "Tablica Posortowana 1-N" << endl;
 	for (int i = 0; i < arraySize; i++)
@@ -13,7 +11,7 @@ void Dane::printSort()
 	}
 	cout << "\n";
 }
-void Dane::printBackSort()
+void Dane::printBackSort()// funkcja wyœwietlaj¹ca tablice  malej¹co
 {
 	cout << "Tablica Posortowana od N-1" << endl;
 	for (int i = 0; i < arraySize; i++)
@@ -22,7 +20,7 @@ void Dane::printBackSort()
 	}
 	cout << "\n";
 } 
-void Dane::printRandomSort()
+void Dane::printRandomSort()// funkcja wyœwietlaj¹ca tablice losow¹
 {
 	cout << "Tablica wygenerowana losowo" << endl;
 	for (int i = 0; i < arraySize; i++)
@@ -31,56 +29,34 @@ void Dane::printRandomSort()
 	}
 	cout << "\n";
 }
-int Dane::addtoCounter()
+int Dane::addtoCounter()//funckja zwiêkszaj¹ca liczbê obiektów oraz zwracaj¹ca ich liczbê
 {
 	return objCounter++;
 }
-Dane::Dane()
+Dane::Dane()// konstruktor domyœlny
 {
 	this->sortedArray = nullptr;
 	this->backSortedArray = nullptr;
 	this->randomArray = nullptr;
-	//this->pomArray = nullptr;
 }
 Dane::Dane(int size)
 {
-	this->arraySize = size;
+	this->arraySize = size; // ustawianie podanej wartosci jako rozmiar tablic
 
-	 sortedArray = new int[arraySize];
-	 backSortedArray = new int[arraySize];
-	 randomArray = new int[arraySize];
-	// pomArray = new int[arraySize];
-	// for (int i = 0; i < arraySize; i++)
-	// {
-	//	 /*if (i == 0)
-	//	 {
-	//		 continue;
-	//	 }*/
-	//	 sortedArray[i] = 0;
-	//	 backSortedArray[i] = 0;
-	//	 randomArray[i] = 0;
-	////	 pomArray[i] = 0;
-	// }
-	 
-	
-
-
-	srand(time(NULL));
-	for (int i = 0; i < arraySize; i++)
+	 sortedArray = new int[arraySize]; // deklaracja tablicy posortowanej
+	 backSortedArray = new int[arraySize];// deklaracja tablicy malej¹cej
+	 randomArray = new int[arraySize];// deklaracja tablicy losowej
+	srand(time(NULL));// pobieranie ziarna do generacji losowych liczb
+	for (int i = 0; i < arraySize; i++) // pêtla wype³niaj¹ca 3 tablice
 	{
-		/*if (i == 0)
-		{
-			continue;
-		}*/
-		randomArray[i] = rand() % arraySize + 1;
-		sortedArray[i] = i+1;
-		backSortedArray[i]= arraySize -i;
+		randomArray[i] = rand() % arraySize + 1; //wype³nianie losowej
+		sortedArray[i] = i+1;//wype³nianie posorotwanej
+		backSortedArray[i]= arraySize -i;//wype³nianie malej¹cej
 	}
-
-	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "\n";
+	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "\n";//Powiadomienie o poprawnym utworzeniu obiektru o nr 
 }
 
-void Dane::printObject(int flag)
+void Dane::printObject(int flag) // funkcja do wybierania wyœwietlania konkrentej tablicy
 {
 	switch (flag)
 	{
@@ -92,12 +68,12 @@ void Dane::printObject(int flag)
 
 }
 
-void Dane::resetObjCounter()
+void Dane::resetObjCounter()//zerowanie liczby obiektów
 {
 	objCounter = 0;
 }
 
-void Dane::printArr(int * arr)
+void Dane::printArr(int * arr) // wywietlanie przes³anej tablicy
 {
 	for (int  i = 0; i < this->arraySize; i++)
 	{
@@ -108,9 +84,6 @@ void Dane::printArr(int * arr)
 
 Dane::~Dane()
 {
-	//	delete [] this->sortedArray;
-	//	delete [] this->backSortedArray;
-	//	delete [] this->randomArray;
-	//
+
 }
 

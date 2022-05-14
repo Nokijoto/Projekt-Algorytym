@@ -12,7 +12,6 @@ class Dane
 public: 
 	int addtoCounter();  // zwwiekszanie licznika obiektów
 	int arraySize = 0; // rozmiar tablicy pozostaje w zmiennej
-	//int* pomArray;
 	int* sortedArray;  // tablica posortowana
 	int* backSortedArray; // tablica malej¹ca
 	int* randomArray; // tablica losowa
@@ -21,6 +20,6 @@ public:
 	~Dane();// dekonstruktor 
 	void printArr(int * arr);// wyœwietlanie tablicy ???
 	void printObject(int flag=0);// wyswietlanie tablicy zale¿nie od flagi
-	void resetObjCounter();
+	void resetObjCounter();//zerowanie liczby obiektów
 };
 

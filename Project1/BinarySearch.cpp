@@ -2,36 +2,36 @@
 #include "BinarySearch.h"
 using namespace std;
 
-int BinarySearch::search(int *L, int Y, int pocz, int kon)
+int BinarySearch::search(int *arrayToSearch, int searched, int pocz, int kon)// funkcja do wyszukiwania sposobem binarnym(tabarrayToSearchica,szukana,index pocz¹tkowy,index koñcowy)
 {
 
-    if (pocz > kon) {
+    if (pocz > kon)// sprawdzenie czy index pocz¹tkowy jest wiêkszy od koñcowego , jeœli tak przerywa dzia³anie funkcji
+    { 
         return -1;
     }
-    this->dominantCounter++;
-    int sr;
-    sr = (pocz + kon) / 2;
-    if (Y == L[sr])
+    this->dominantCounter++; // zwiêkszenie ilosci operacji dominujacych
+    int middle; // deklaracja zmiennej przechowuj¹cej index œrodkowy
+    middle = (pocz + kon) / 2; // definicja zmiennej œrodkowej 
+    if (searched == arrayToSearch[middle]) // sprawdzanie czy œrodkowa jest liczb¹ poszukiwan¹,jeœli tak to zwrócenie indexu œrodkowego
     {
-
-        return sr;
+        return middle;
     }
-    if (Y < L[sr])
+    if (searched < arrayToSearch[middle])//sprawdzenie czy poszukiwana jest mniejsza od œrodkowej
     {
-       
-        return search(L, Y, pocz, sr - 1);
+        this->dominantCounter++;
+        return search(arrayToSearch, searched, pocz, middle - 1);
     }
     else
     {
         this->dominantCounter++;
-        return search(L, Y, sr + 1, kon);
+        return search(arrayToSearch, searched, middle + 1, kon);
        
     }
         
 
 }
 
-int BinarySearch::printDominantCounter()
+int BinarySearch::printDominantCounter()//zwraca liczbe zdarzen elementarnych
 {
     return this->dominantCounter;
 }

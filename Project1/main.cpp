@@ -4,13 +4,15 @@
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h> 
 #include <Windows.h>
+
 #include "BubbleSort.h"
 #include "InsertSort.h"
 #include "MergeSort.h"
 #include "Dane.h"
 #include "LinearSearch.h"
 #include "BinarySearch.h"
-#include "QuickSort.h"
+#include "Dijkstra.h"
+
 	
 
 using namespace std;
@@ -34,26 +36,33 @@ void empiricalInsertSort();
 void empiricalMergeSort();
 void empiricalBinarySerach();
 void empiricalLinarySearch();
-
-int main()
+void alghoritmOfDijkstra();
+void simpleTextUserInterface()
 {
 	bool flag = 1;
 	while (flag)
 	{
 		int option = -1;
+
+		cout << "\nObiekty tworzone sa w kolejnosci\nSortowane: 1-N\nMalejaca:N-1\n";
 		cout << "\nEmpiryczna analiza algorytmow:\n1.BubbleSort\n2.InserSort\n3.MergeSort\n4.BinarySearch\n5.LinearSearch\n";
-		cout << "\nObiekty tworzone sa w kolejnoœci\nSortowane: 1-N\nMalejaca:N-1\n";
 		cin >> option;
 		switch (option)
 		{
 		case 1:empiricalBubbleSort(); break;
 		case 2:empiricalInsertSort(); break;
 		case 3:empiricalMergeSort(); break;
-		case 4:empiricalBinarySerach();break;
+		case 4:empiricalBinarySerach(); break;
 		case 5:empiricalLinarySearch(); break;
+		case 6:alghoritmOfDijkstra();
 		case 0:flag = 0; break;
 		}
 	}
+};
+
+int main()
+{
+	simpleTextUserInterface();
 	
 system("PAUSE");
 }
@@ -94,18 +103,21 @@ void empiricalBubbleSort()
 	for (int i = 0; i < howMuch; i++)
 	{
 		cout << i << ")Partia danych do sortowania\n\n";
+		
 		BubbleSortSortedObjectArray[i]->sort(DataBubbleArray[i]->sortedArray, DataBubbleArray[i]->arraySize);
 		cout << "Dominujace dla Sortowania bubble i dla posortowanej tablicy : " << BubbleSortSortedObjectArray[i]->printDominantCounter() << "\n";
 		sortedTime[i] = BubbleSortSortedObjectArray[i]->printDominantCounter();
-
+		
 		BubbleSortBackObjectArray[i]->sort(DataBubbleArray[i]->backSortedArray, DataBubbleArray[i]->arraySize);
 		cout << "Dominujace dla Sortowania bubble i dla malejacej tablicy : " << BubbleSortBackObjectArray[i]->printDominantCounter() << "\n";
 		backTime[i] = BubbleSortBackObjectArray[i]->printDominantCounter();
-
+		
 		BubbleSortRandomObjectArray[i]->sort(DataBubbleArray[i]->randomArray, DataBubbleArray[i]->arraySize);
 		cout << "Dominujace dla Sortowania bubble i dla losowej tablicy : " << BubbleSortRandomObjectArray[i]->printDominantCounter() << "\n";
 		randomTime[i] = BubbleSortRandomObjectArray[i]->printDominantCounter();
+
 		cout << "\n";
+		DataBubbleArray[i]->~Dane();
 	}
 	BubbleDataToFile.saveToFile("Bubble", howMuch, sizeObjects, sortedTime, backTime, randomTime);
 	
@@ -135,7 +147,7 @@ void empiricalInsertSort()
 		//cin >> arraysSize;
 		//cout << "\n";
 		DataInsertArray[i] = new Dane(i); // tworzenie X obiektów w których s¹ tworzone  3*X tablic  
-		sizeObjects[i] = arraysSize;
+		sizeObjects[i] = i;
 
 		InsertSortSortedObjectArray[i] = new InsertSort; // tablica obiektów dla posortowanych danych
 		InsertSortBackObjectArray[i] = new InsertSort; // tablica obiektów dla malejacych 
@@ -226,7 +238,7 @@ void empiricalLinarySearch()
 	int howMuch = 0;
 
 	cout << "Podaj ilosc obiektow do testowania\n";
-	cin >> howMuch;
+	cin >> howMuch;//100
 	Dane** DataLinaryArray = new Dane * [howMuch];       // tablica obiektów 
 	LinearSearch** LinarySearchSortedObjectArray = new LinearSearch * [howMuch]; // tablica obiektów
 	LinearSearch** LinarySearchBackObjectArray = new LinearSearch * [howMuch];// tablica obiektów
@@ -433,3 +445,12 @@ ToFile::ToFile(int size)
 	backTime = new int[size];
 	randomTime = new int[size];
 }
+
+void alghoritmOfDijkstra()
+{
+	int size = 0;
+	cout << "Podaj ilosc wierzcholkow\n";
+	cin >> size;
+	Dijkstra Obiekt(size);
+	//Obiekt.find();
+};

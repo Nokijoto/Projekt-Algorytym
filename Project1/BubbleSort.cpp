@@ -6,43 +6,37 @@ using namespace std;
 
 bool BubbleSort::validate(int j,int size, int i)
 {
-	this->dominantCounter++;
-	if (j < size - i - 1)
+	this->dominantCounter++; //zwiêkszenie operacji elementarnych
+	if (j < size - i - 1) //sprawdzenie warunku
 	{
 		return true;
 	}
 	return false;
 }
 
-void BubbleSort::sort(int *arrayToSort, int size)
+void BubbleSort::sort(int *arrayToSort, int size) // do funkcji przesy³amy tablicê oraz jej rozmiar
 { 
 
-
-	//this->dominantCounter = 0; //zerowanie gdy nastêpny obiekt ?
-	bool flag;
-	int i, j;
-	for (i = 0; i < size - 1; i++)
+	bool flag; // deklaracja zmiennej do sprawdzania zamiany
+	for (int i = 0; i < size - 1; i++)  // 1 pêtla wykonuj¹ca siê dla ca³ej tablicy
 	{
-		flag = true;
-	// Last i elements are already in place
-		for (j = 0; validate(j,size,i); j++)
+		flag = false; // ustawienie flagi na brak zamiany
+		for (int j = 0; validate(j,size,i); j++)// pêtla porównuj¹ca dwie zmienne
 		{
-			if (arrayToSort[j] > arrayToSort[j + 1])
+			if (arrayToSort[j] > arrayToSort[j + 1])// sprawdzanie czy zmienna jest wiêksza od nastêpnej
 			{
-				swap(arrayToSort[j], arrayToSort[j + 1]);
-				flag = false;
+				swap(arrayToSort[j], arrayToSort[j + 1]);// funkcja wykonuj¹ca zamianê dwóch wartoœci
+				flag =true; // zmiana zosta³a wykonana
 			}
-				
 		}
-		if (flag) {										// Sprawdzenie czy zamiana zosta³a wykonana
-		break;										// Je¿eli nie zosta³a wykonana ,przerwanie pracy algorytmu
+		if (!flag) {// Sprawdzenie czy zamiana zosta³a wykonana
+		break;// Je¿eli nie zosta³a wykonana ,przerwanie pracy algorytmu
 		}
 	}
-		
-										// Zmienna do wyszukiwania czy zmiana zosta³a wykonana
 }
 
 int BubbleSort::printDominantCounter()
 {
-	return this->dominantCounter;
+	return this->dominantCounter;// zwrócenie ilosci operacji elementarnych
 }
+
