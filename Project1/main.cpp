@@ -4,6 +4,7 @@
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h> 
 #include <Windows.h>
+#include <cmath>
 
 #include "BubbleSort.h"
 #include "InsertSort.h"
@@ -398,39 +399,77 @@ void empiricalBinarySerach()
 void ToFile::saveToFile(string type,int countObjects, int* sizeObjects, int* sortedTime, int* backTime, int* randomTime)
 {
 	string PATH = "dane/data" + type + ".txt";
-	cout << PATH;
+	
 	fstream plik(PATH);
 	plik.open(PATH, ios::app);
 	if (plik.good())
 	{
-		cout << " Uwtorzono plik z danymi\n";
+		cout << " Uwtorzono plik z danymi o nazwie " << PATH << "\n";
 	}
 	else
 	{
 		cout << " Blad tworzenia pliku\n";
 	}
-	plik << "Rozmiar Danych;";
+	plik << "Rozmiar Danych " << type << " ;";
 	for (int i = 0; i < countObjects; i++)
 	{
 		plik << sizeObjects[i] << ";";
 	}
 	plik << "\n";
-	plik << "Posortowane;";
+	plik << "Posortowane "<<type<<" ;";
 	for (int i = 0; i < countObjects; i++)
 	{
 		plik <<sortedTime[i]<<";";
 	}
 	plik << "\n";
-	plik << "Malejaca;";
+	plik << "Malejaca " << type << " ;";
 	for (int i = 0; i < countObjects; i++)
 	{
 		plik <<backTime[i]<<";";
 	}
 	plik << "\n";
-	plik << "Losowo;";
+	plik << "Losowo " << type << " ;";
 	for (int i = 0; i < countObjects; i++)
 	{
 		plik <<randomTime[i]<<";";
+	}
+	plik << "\n";
+	plik << "Pomocnicza(najgorszy przypadek) " << type << " ;";
+	for (int i = 0; i < countObjects; i++)
+	{
+		if (type == "Binarne")
+		{
+			if (i == 0)
+			{
+				plik << 0 << ";";
+			}
+			else
+			{
+				plik << ceil(log2(i)) << ";";
+			}
+			
+		}
+		else if(type=="Liniowe")
+		{
+			plik <<i << ";";
+		}
+		else if (type == "Bubble"|| type == "Insert")
+		{
+			plik << pow(i, 2) << ";";
+		}
+		else if (type == "Merge")
+		{
+			if (i == 0)
+			{
+				plik << 0 << ";";
+			}
+			else
+			{
+				plik << ceil(i * log2(i)) << ";";
+			}
+			
+		}
+
 	}
 	plik << "\n";
 	plik.close();

@@ -53,7 +53,7 @@ Dane::Dane(int size)
 		sortedArray[i] = i+1;//wype³nianie posorotwanej
 		backSortedArray[i]= arraySize -i;//wype³nianie malej¹cej
 	}
-	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "\n";//Powiadomienie o poprawnym utworzeniu obiektru o nr 
+//	cout << " Utworzono Obiekt Dane o nr : " << addtoCounter() << "\n";//Powiadomienie o poprawnym utworzeniu obiektru o nr 
 }
 
 void Dane::printObject(int flag) // funkcja do wybierania wyœwietlania konkrentej tablicy

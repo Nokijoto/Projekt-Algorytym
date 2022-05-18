@@ -10,9 +10,6 @@ private:
 public:
 	void sort(int* array, int left, int right);//funkcja sortuj¹ca tablice algorytmem merge sort( tablica,index pocz¹tkowy,index koñcowy)
 	int printDominantCounter();//zwraca liczbe zdarzen elementarnych
-
-
-
 };
 
 
